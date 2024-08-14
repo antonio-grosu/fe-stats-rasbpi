@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const fetchData = () => {
       axios
-        .get("https://7100-5-12-82-69.ngrok-free.app", {
+        .get("https://7cb0-5-12-82-69.ngrok-free.app", {
           mode: "no-cors",
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -38,7 +38,7 @@ function App() {
     return () => clearInterval(intervalId);
   }, []); // Empty dependency array ensures this effect runs once after initial render
   return (
-    <div className="bg-gray-950 min-h-screen flex-col flex p-4 md:p-12 items-center justify-center">
+    <div className="bg-[url('/bg-image.png')] md:bg-cover bg-contain  min-h-screen flex-col flex p-4 md:p-12 items-center justify-center">
       {/* partea de sus */}
       <div>
         <h1 className="text-white text-2xl font-bold underline underline-offset-2 ">
@@ -53,22 +53,37 @@ function App() {
           )}
         </h2>
       </div>
-      <div className="bg-gray-50/10 mt-12 p-4 w-full md:w-5/12 rounded-2xl border-2 border-white/50">
-        <div className="flex w-full justify-between">
-          <h3 className="font-bold text-white">CPU Cores</h3>
-          <h3 className="font-bold text-white">{stats.cpu.length}</h3>
+      <div className="bg-white/10 mt-12 p-4 w-full md:w-5/12 flex flex-col gap-2 rounded-2xl border-2 border-white/50">
+        <div className="flex w-full justify-between border-b-2 border-white/20 pb-1">
+          <h3 className=" text-white">Hostname</h3>
+          <h3 className="font-bold text-white">{stats.hostname}</h3>
         </div>
-        <div className="flex w-full justify-between">
-          <h3 className="font-bold text-white">Free Memory</h3>
+        <div className="flex w-full justify-between border-b-2 border-white/20 pb-1">
+          <h3 className=" text-white">Platform</h3>
+          <h3 className="font-bold text-white">{stats.platform}</h3>
+        </div>
+        <div className="flex w-full justify-between border-b-2 border-white/20 pb-1">
+          <h3 className=" text-white">CPU Cores</h3>
+          <h3 className="font-bold text-white">{stats.cpu}</h3>
+        </div>
+        <div className="flex w-full justify-between border-b-2 border-white/20 pb-1">
+          <h3 className=" text-white">Memory Usage</h3>
+          <h3 className="font-bold text-white">{stats.memUsage}</h3>
+        </div>
+        <div className="flex w-full justify-between border-b-2 border-white/20 pb-1">
+          <h3 className=" text-white">Free Memory</h3>
           <h3 className="font-bold text-white">{stats.freeMemory}</h3>
         </div>
-        <div className="flex w-full justify-between">
-          <h3 className="font-bold text-white">Up Time</h3>
+        <div className="flex w-full justify-between border-b-2 border-white/20 pb-1">
+          <h3 className=" text-white">Up Time</h3>
           <h3 className="font-bold text-white">{stats.upTime}</h3>
         </div>
-        <div className="flex w-full justify-between">
-          <h3 className="font-bold text-white">Temperature</h3>
-          <h3 className="font-bold text-white">{stats.temp}</h3>
+        <div className="flex w-full justify-between border-b-2 border-white/20 pb-1">
+          <h3 className=" text-white">Temperature</h3>
+          <h3 className="font-bold text-white">
+            {stats.temp[5]}
+            {stats.temp[6]} °C
+          </h3>
         </div>
       </div>
     </div>
