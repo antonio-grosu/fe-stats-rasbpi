@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const fetchData = () => {
       axios
-        .get("https://7cb0-5-12-82-69.ngrok-free.app", {
+        .get("https://51da-5-12-82-69.ngrok-free.app", {
           mode: "no-cors",
           headers: {
             "Access-Control-Allow-Origin": "*",
